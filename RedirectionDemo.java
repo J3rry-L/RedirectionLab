@@ -4,6 +4,10 @@ public class RedirectionDemo{
       //use the standard input (terminal input)
       //as the string that you read from
       Scanner n = new Scanner( System.in );
+      while(n.hasNextLine()){
+        System.out.println(n.nextLine());
+      }
+
       //use hasNextLine()/nextLine() to loop over
       //all of the data
 
