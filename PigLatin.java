@@ -1,6 +1,19 @@
 import java.util.*;
 public class PigLatin{
   public static void main(String[] args){
+    Scanner n = new Scanner(System.in);
+    while (n.hasNextLine()){
+      Scanner w = new Scanner(n.nextLine());
+      while (w.hasNext()){
+          System.out.print(pigLatinBest(w.next()));
+        if(w.hasNext()){
+          System.out.print(" ");
+        }
+      }
+      if (n.hasNextLine()){
+        System.out.print("\n");
+      }
+    }
     /*
     System.out.println(pigLatinSimple("mOck"));
     System.out.println(pigLatinSimple("pIe"));
@@ -99,11 +112,11 @@ public class PigLatin{
     }
   }
   public static int findPunctuation(String s){
-    for (int i = 0; i < s.length(); i++){
-      if (!Character.isLetter(s.charAt(i)) && !Character.isDigit(s.charAt(i))){
+    for (int i = s.length() - 1; i >= 0; i--){
+      if (Character.isLetter(s.charAt(i)) || Character.isDigit(s.charAt(i))){
         return i;
       }
     }
-    return -1;
+    return 0;
   }
 }
