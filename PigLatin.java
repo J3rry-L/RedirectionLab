@@ -1,6 +1,7 @@
 import java.util.*;
 public class PigLatin{
   public static void main(String[] args){
+    /*
     System.out.println(pigLatinSimple("mOck"));
     System.out.println(pigLatinSimple("pIe"));
     System.out.println(pigLatinSimple("daViD"));
@@ -25,9 +26,35 @@ public class PigLatin{
     System.out.println(pigLatin("z"));
     System.out.println(pigLatin("Z"));
     System.out.println(pigLatin(""));
+    System.out.println(pigLatinBest("*eMu"));
+    System.out.println(pigLatinBest("4cHAn"));
+    System.out.println(pigLatinBest("fisH!") );
+    System.out.println(pigLatinBest("fIsh"));
+    System.out.println(pigLatinBest("tHe."));
+    System.out.println(pigLatinBest("caT!"));
+    System.out.println(pigLatinBest("amaZiNg?"));
+    System.out.println(pigLatinBest("applE%"));
+    System.out.println(pigLatinBest("caT9?"));
+    System.out.println(pigLatinBest("applE4%"));
+    System.out.println(pigLatinBest("tHe"));
+    System.out.println(pigLatinBest("CheCk"));
+    System.out.println(pigLatinBest("skeE"));
+    System.out.println(pigLatinBest("eMU"));
+    System.out.println(pigLatinBest("gRade"));
+    System.out.println(pigLatinBest("tH"));
+    System.out.println(pigLatinBest("mOck"));
+    System.out.println(pigLatinBest("pIe"));
+    System.out.println(pigLatinBest("daViD"));
+    System.out.println(pigLatinBest("AaRon"));
+    System.out.println(pigLatinBest("a"));
+    System.out.println(pigLatinBest("A"));
+    System.out.println(pigLatinBest("z"));
+    System.out.println(pigLatinBest("Z"));
+    System.out.println(pigLatinBest(""));
+    */
   }
   public static String pigLatinSimple(String s){
-    if (s == ""){
+    if (s.equals("")){
       return "";
     }
     s = s.toLowerCase();
@@ -57,6 +84,26 @@ public class PigLatin{
     }
   }
   public static String pigLatinBest(String s){
-    return null;
+    s = s.toLowerCase();
+    if(s.equals("")){
+      return "";
+    }
+    else if(!Character.isLetter(s.charAt(0))){
+      return s;
+    }
+    else if(findPunctuation(s) != -1){
+      return(pigLatin(s.substring(0,findPunctuation(s))) + s.substring(findPunctuation(s)));
+    }
+    else{
+      return(pigLatin(s));
+    }
+  }
+  public static int findPunctuation(String s){
+    for (int i = 0; i < s.length(); i++){
+      if (!Character.isLetter(s.charAt(i)) && !Character.isDigit(s.charAt(i))){
+        return i;
+      }
+    }
+    return -1;
   }
 }
