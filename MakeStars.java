@@ -11,9 +11,13 @@ public class MakeStars{
           for (int i = 0; i < wordLength; i++){
             System.out.print("*");
           }
-          System.out.print(" ");
+          if(w.hasNext()){
+            System.out.print(" ");
+          }
         }
-      System.out.print("\n");
+        if (n.hasNextLine()){
+          System.out.print("\n");
+        }
       }
       //use hasNextLine()/nextLine() to loop over
       //all of the data
