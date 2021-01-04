@@ -105,7 +105,7 @@ public class PigLatin{
       return s;
     }
     else if(findPunctuation(s) != -1){
-      return(pigLatin(s.substring(0,findPunctuation(s))) + s.substring(findPunctuation(s)));
+      return(pigLatin(s.substring(0,findPunctuation(s) + 1)) + s.substring(findPunctuation(s) + 1));
     }
     else{
       return(pigLatin(s));
